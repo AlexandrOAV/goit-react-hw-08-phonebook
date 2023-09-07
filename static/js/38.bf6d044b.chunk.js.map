@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/38.bf6d044b.chunk.js","mappings":"wKAQA,UANc,WACZ,OACE,yBAAK,SAER,C","sources":["pages/Login.jsx"],"sourcesContent":["import React from 'react'\n\nconst Login = () => {\n  return (\n    <div>Login</div>\n  )\n}\n\nexport default Login"],"names":[],"sourceRoot":""}
