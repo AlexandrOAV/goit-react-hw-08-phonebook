@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/451.213909e8.chunk.js","mappings":"yKAQA,UANqB,WACnB,OACE,yBAAK,gBAER,C","sources":["pages/Registration.jsx"],"sourcesContent":["import React from 'react'\n\nconst Registration = () => {\n  return (\n    <div>Registration</div>\n  )\n}\n\nexport default Registration"],"names":[],"sourceRoot":""}
