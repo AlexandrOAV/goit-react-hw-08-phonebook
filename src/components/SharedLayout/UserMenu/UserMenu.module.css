@@ -1,0 +1,24 @@
+.button{
+  padding: 6px;
+  font-size: 18px;
+  color: #ffffff;
+  width: 200px;
+  background:  #717eb4;
+  border: none;
+  border-radius: 7px;
+  box-shadow: 2px 3px 5px #000000;
+  cursor: pointer;
+  transition: all 100ms ease 0s;
+  }
+  .button:is(:hover, :focus){
+    background: #ffffff;
+    color:#0734fd;
+    box-shadow: 2px 7px 7px #000000;
+  }
+.menuUser {
+
+    display: flex;
+    gap: 10px;
+    align-items:center;
+    justify-items: end;
+}
