@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/910.8ef9f1c0.chunk.js","mappings":"qLASA,UANiB,WACf,OACE,0BAAK,SAAC,IAAD,KAER,C","sources":["pages/Contacts.jsx"],"sourcesContent":["import { Loader } from 'components/Loader/Loader'\nimport React from 'react'\n\nconst Contacts = () => {\n  return (\n    <div><Loader/></div>\n  )\n}\n\nexport default Contacts"],"names":[],"sourceRoot":""}
