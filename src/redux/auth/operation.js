@@ -35,6 +35,7 @@ export const loginUser = createAsyncThunk(
       token.set(data.token); 
       return data;
     } catch (error) {
+      alert('Please check that your email or password is correct')
       return thunkApi.rejectWithValue(error.message);
     }
   },

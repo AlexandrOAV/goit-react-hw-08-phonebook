@@ -1,6 +1,6 @@
 import ContactForm from 'components/ContactForm/ContactForm';
 import ContactList from 'components/ContactList/ContactList ';
-import { Filter } from 'components/Filter/Filter';
+import  Filter from 'components/Filter/Filter';
 import { Loader } from 'components/Loader/Loader';
 
 import React, { useEffect } from 'react'
@@ -19,7 +19,7 @@ const isLoading = useSelector(selectIsLoading)
   return (
     <> 
       <ContactForm />
-      <Filter />
+      <Filter/>
       { isLoading&&<Loader/>}
        <ContactList />
     </>

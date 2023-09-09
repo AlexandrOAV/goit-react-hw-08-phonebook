@@ -42,15 +42,6 @@ useEffect(() => {
         </Route>
       </Routes>
   </Suspense>
-    // <div className={css.container}>
-    //   <h1 className={css.title}> Phonebook</h1>
-    //   <ContactForm />
-    //   <h2 className={css.title_contacts}>Contacts</h2>
-    //   <Filter />
-    //    {isLoading && !error && <><h2>Loading contacts...</h2><Loader/></>}
-    //     <ContactList />
-      
-    // </div>
   );
 }
 

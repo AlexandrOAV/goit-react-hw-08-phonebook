@@ -12,18 +12,18 @@ function ContactForm() {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const [number, setNumber] = useState('');
 
   
   const handleChange = ({ target: { name: inputName, value } }) => {
     if (inputName === 'name') {
       setName(value);
     } else if (inputName === 'number') {
-      setPhone(value);
+      setNumber(value);
     }
   };
 
-  const handleSubmit = async  evt => {
+  const handleSubmit =   evt => {
     evt.preventDefault();
     const userName = contacts.items.find(
       contact => contact.name.toLowerCase() === name.toLowerCase()
@@ -32,15 +32,15 @@ function ContactForm() {
       alert(`${name} is already in contacts`);
       return;
     }
-    const newData = { name, phone };
-    console.log('newData: ', newData);
-    dispatch(addContact(newData));
+    const formData = { name, number };
+ 
+    dispatch(addContact(formData));
     reset();
   };
   
   const reset = () => {
     setName('');
-    setPhone('');
+    setNumber('');
   };
 
   return (<section className={css.container}>
@@ -66,7 +66,7 @@ function ContactForm() {
           <input
             type="tel"
             name="number"
-            value={phone}
+            value={number}
             onChange={handleChange}
             placeholder="Enter number phone"
             pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"

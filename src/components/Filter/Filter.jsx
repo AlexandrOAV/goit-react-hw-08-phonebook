@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {  setFilter } from 'redux/filterSlice';
 import { selectFilter } from 'redux/selectors';
 
-export const Filter = () => {
+const Filter = () => {
       const dispatch = useDispatch();
   const filter = useSelector(selectFilter);
 
@@ -13,9 +13,10 @@ export const Filter = () => {
   };
     
     return (
-        <div >
+      
+            <div className={css.container}>
+                <div className={css.filter_block}>
 
-        <div className={css.container}>
             <label
                 className={css.label}
                 htmlFor="filter">
@@ -29,9 +30,10 @@ export const Filter = () => {
                 value={filter}
                 placeholder='name to search for'
                 onChange={handleFilter}
-            />
-        </div>
+                />
                 </div>
+        </div>
+                
     )
 }
-
+export default Filter
