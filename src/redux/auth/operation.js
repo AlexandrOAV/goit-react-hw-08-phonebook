@@ -42,11 +42,26 @@ export const loginUser = createAsyncThunk(
 
 export const logOutUser = createAsyncThunk(
   'auth/logOutUser',
-  async (_, thunkApi) => {
+  async thunkApi => {
     try {
         await instance.post(`users/logout`);
         token.clear();
     return ;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  },
+);
+
+export const refreshUser = createAsyncThunk(
+  'auth/refreshUser',
+  async (_, thunkApi) => {
+    try {
+      const state = thunkApi.getState();
+      const userToken = state.auth.token;
+      token.set(userToken);
+      const { data } = await instance.get(`users/current`);
+      return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
     }

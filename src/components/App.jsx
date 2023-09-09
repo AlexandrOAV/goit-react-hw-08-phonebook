@@ -6,11 +6,11 @@
 import { HOME_ROUTE,  addRoute } from "constans/constans";
 
 import { Route, Routes } from "react-router-dom";
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useEffect } from "react";
 import { Loader } from "./Loader/Loader";
+import { useDispatch } from "react-redux";
+import { refreshUser } from "redux/auth/operation";
 
-// import { useDispatch, useSelector } from "react-redux";
-// import { useEffect } from "react";
 // import { fetchContacts } from "redux/operation";
 // import { selectError, selectIsLoading } from "redux/selectors";
 const Home = lazy(() => import("pages/Home"));
@@ -19,14 +19,20 @@ const SharedLayout = lazy(()=>import ('./SharedLayout/SharedLayout'))
 
 export const App = () => {
   
-//   const dispatch = useDispatch();
+
 //   const isLoading  = useSelector(selectIsLoading);
 //  const error = useSelector(selectError);
 
 //   useEffect(() => {
 //     dispatch(fetchContacts());
 //   }, [dispatch]);
-
+  
+const dispatch = useDispatch();
+  
+useEffect(() => {
+    dispatch(refreshUser());
+}, [dispatch]);
+  
   return ( 
   <Suspense fallback={<Loader/>}>
       <Routes>
