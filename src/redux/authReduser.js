@@ -63,7 +63,7 @@ const authSlice = createSlice({
         state.userData = action.payload;
         })
     .addCase(refreshUser.rejected, handleRejected)
-}
+},
 )
 
 export const authReducer = authSlice.reducer;

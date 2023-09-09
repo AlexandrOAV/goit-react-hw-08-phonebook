@@ -2,8 +2,9 @@
 import { useState } from 'react';
 import css from './ContactForm.module.css'
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/operation';
+
 import { selectContacts } from 'redux/selectors';
+import { addContact } from 'redux/operation';
 
 
 
@@ -22,7 +23,7 @@ function ContactForm() {
     }
   };
 
-  const handleSubmit = evt => {
+  const handleSubmit = async  evt => {
     evt.preventDefault();
     const userName = contacts.items.find(
       contact => contact.name.toLowerCase() === name.toLowerCase()
@@ -31,8 +32,9 @@ function ContactForm() {
       alert(`${name} is already in contacts`);
       return;
     }
-   const newData = { name, phone };
-   dispatch(addContact(newData));
+    const newData = { name, phone };
+    console.log('newData: ', newData);
+    dispatch(addContact(newData));
     reset();
   };
   
@@ -41,7 +43,8 @@ function ContactForm() {
     setPhone('');
   };
 
-    return (
+  return (<section className={css.container}>
+       <h1 className={css.title}> Phonebook</h1>
       <form className={css.contact_form} onSubmit={handleSubmit}>
         <label className={css.contact_label}>Name:
           <input
@@ -73,6 +76,7 @@ function ContactForm() {
           /></label>
         <button type="submit">Add contact</button>
       </form>
+            </section>
     )
   }
 

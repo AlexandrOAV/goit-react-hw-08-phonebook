@@ -10,9 +10,7 @@ const ContactList = () => {
   // const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
   const visibleContact = useSelector(selectFilterContacts);
-  // const visibleContact = contacts.items.filter(contact =>
-  //   contact.name.toLowerCase().includes(filter.toLowerCase())
-  // );
+
   const total = contacts.items.length;
  
   const handleDelete = (id) => dispatch(deleteContacts(id));
@@ -22,8 +20,10 @@ const ContactList = () => {
   
   
   return (
-    visibleContact.length > 0 && <>
-      <p className={css.total}>Total contacts: {totalContacts}</p>
+    visibleContact.length > 0 &&
+    <>
+      <h2>List Contcts</h2>
+        <p className={css.total}>Total contacts: {totalContacts}</p>
          <ul className={css.list}>
                 {visibleContact.map(contact => {
                   const tel=`tel:${contact.phone}`
@@ -35,8 +35,8 @@ const ContactList = () => {
               </li>
             )
           })}
-        </ul>
-          </>
+      </ul> 
+             </>
     )
 }
 

@@ -1,3 +1,5 @@
+import PrivateRoute from "components/PrivateRoute/PrivateRoute";
+import RestrictedRoute from "components/RestrictedRoute/RestrictedRoute";
 import { lazy } from "react";
 
 export const HOME_ROUTE = '/';
@@ -14,15 +16,21 @@ const NotFaund = lazy(() => import("pages/NotFaund"));
 export const addRoute = [
     {
         path: CONTACTS_ROUTE,
-       element: <Contacts />,
+      element: <PrivateRoute>
+                  <Contacts />,
+               </PrivateRoute>
     },
     {
         path: LOGIN_ROUTE,
-       element: <Login />,
+       element:   <RestrictedRoute redirectTo={CONTACTS_ROUTE}>
+                     <Login />
+                  </RestrictedRoute>,
     },
      {
         path: REGISTER_ROUTE,
-       element: <Registration/>,
+       element: <RestrictedRoute redirectTo={CONTACTS_ROUTE}>
+                  <Registration/>
+               </RestrictedRoute>,
     },
       {
         path: NOTFOUND_ROUTE,

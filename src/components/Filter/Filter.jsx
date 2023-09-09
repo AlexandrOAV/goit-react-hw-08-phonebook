@@ -13,7 +13,9 @@ export const Filter = () => {
   };
     
     return (
-        <div className={css.filter_block}>
+        <div >
+
+        <div className={css.container}>
             <label
                 className={css.label}
                 htmlFor="filter">
@@ -29,6 +31,7 @@ export const Filter = () => {
                 onChange={handleFilter}
             />
         </div>
+                </div>
     )
 }
 
